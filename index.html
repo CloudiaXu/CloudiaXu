@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/CloudiaXu/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/CloudiaXu/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/CloudiaXu/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/CloudiaXu/apple-touch-icon.png" />
+    <link rel="manifest" href="/CloudiaXu/site.webmanifest" />
+    <meta name="theme-color" content="#05070d" />
+    <link rel="canonical" href="https://cloudiaxu.github.io/CloudiaXu/" />
+    <title>許筱芸 XiaoYun Xu｜Flutter APP 工程師 — 作品集/履歷</title>
+    <meta name="description" content="5 年 Flutter 跨平台 APP 開發經驗，獨立完成多個 APP 從 0 到 1 開發到 App Store / Google Play 上架。線上作品集與履歷。" />
+    <meta name="author" content="XiaoYun Xu" />
+
+    <!--
+      Social-share preview. og:image and twitter:image MUST be absolute
+      https URLs — crawlers (FB, LinkedIn, Slack, Discord, LINE) don't
+      know about the /CloudiaXu/ base path and silently 404 on
+      relative paths. Vite does NOT rewrite meta-tag content, only
+      element href/src attributes, so we hard-code the deployed URL.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="XiaoYun Xu" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:url" content="https://cloudiaxu.github.io/CloudiaXu/" />
+    <meta property="og:title" content="許筱芸 XiaoYun Xu｜Flutter APP 工程師 — 作品集/履歷" />
+    <meta property="og:description" content="5 年 Flutter 跨平台 APP 開發經驗，獨立完成多個 APP 從 0 到 1 開發到 App Store / Google Play 上架。線上作品集與履歷。" />
+    <meta property="og:image" content="https://cloudiaxu.github.io/CloudiaXu/og-image.png" />
+    <!-- og:image:secure_url is a duplicate of og:image, but some older
+         FB/LINE crawlers explicitly look for the *:secure_url variant
+         to confirm the image is served over https. Cheap belt-&-braces. -->
+    <meta property="og:image:secure_url" content="https://cloudiaxu.github.io/CloudiaXu/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CONNECT THE DOTS, CREATE VALUE. — XiaoYun Xu" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="許筱芸 XiaoYun Xu｜Flutter APP 工程師 — 作品集/履歷" />
+    <meta name="twitter:description" content="5 年 Flutter 跨平台 APP 開發經驗，獨立完成多個 APP 從 0 到 1 開發到 App Store / Google Play 上架。線上作品集與履歷。" />
+    <meta name="twitter:image" content="https://cloudiaxu.github.io/CloudiaXu/og-image.png" />
+    <meta name="twitter:image:alt" content="CONNECT THE DOTS, CREATE VALUE. — XiaoYun Xu" />
+
+    <!--
+      JSON-LD structured data for Google / Bing rich results. Declaring
+      the page as a Person + WebSite lets search engines render a richer
+      preview (name, image, social links) when the URL is shared in
+      search-result thumbnails or knowledge cards. Pure SEO; social
+      crawlers ignore this block (they use og:* above).
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://cloudiaxu.github.io/CloudiaXu/#person",
+          "name": "XiaoYun Xu",
+          "alternateName": "cloudia",
+          "url": "https://cloudiaxu.github.io/CloudiaXu/",
+          "image": "https://cloudiaxu.github.io/CloudiaXu/og-image.png",
+          "description": "5 年 Flutter 跨平台 APP 開發經驗，獨立完成多個 APP 從 0 到 1 開發到 App Store / Google Play 上架。線上作品集與履歷。",
+          "sameAs": [
+            "https://www.linkedin.com/in/xyxu/",
+            "https://www.instagram.com/cloudia.life"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cloudiaxu.github.io/CloudiaXu/#website",
+          "url": "https://cloudiaxu.github.io/CloudiaXu/",
+          "name": "許筱芸 XiaoYun Xu｜Flutter APP 工程師 — 作品集/履歷",
+          "inLanguage": "zh-TW",
+          "author": { "@id": "https://cloudiaxu.github.io/CloudiaXu/#person" }
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/CloudiaXu/assets/main-Bzz3nPb7.js"></script>
+    <link rel="modulepreload" crossorigin href="/CloudiaXu/assets/style-BSYgul-0.js">
+    <link rel="stylesheet" crossorigin href="/CloudiaXu/assets/style-BqJFFa33.css">
+  </head>
+  <body>
+    <!-- Design guide overlay. Hidden by default; press G to toggle, F to cycle opacity. -->
+    <div id="design-guide" class="hidden" aria-hidden="true">
+      <img src="/CloudiaXu/reference.png" alt="design guide" />
+    </div>
+
+    <canvas id="scene" aria-hidden="true"></canvas>
+
+    <header class="nav">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        XiaoYun Xu
+      </a>
+      <nav>
+        <a href="#about">關於我</a>
+        <a href="./works.html">我的作品</a>
+        <a href="./resume.html">我的履歷</a>
+        <a href="#contact">聯絡我</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <!-- Hero text rendered as static SVG (text.svg) — the SVG
+               IS the design intent (dotted-typography). h1 below stays
+               in DOM for SEO + screen readers; visually hidden via CSS. -->
+          <img class="hero-text-svg" src="/CloudiaXu/text.svg" alt="" aria-hidden="true" />
+          <h1>
+            CONNECT<br />
+            THE DOTS,<br />
+            CREATE <span class="accent">VALUE.</span>
+          </h1>
+          <p class="lede">
+            5 年 Flutter 跨平台開發，<br />
+            把複雜需求從 0 到 1 做到雙平台上架。
+          </p>
+          <p class="sub">
+            Flutter APP 工程師｜跨平台開發 × 獨立上架 × 原生整合
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="./works.html" data-cta>查看作品 →</a>
+            <a class="btn btn-ghost" href="./resume.html" data-cta>我的履歷</a>
+          </div>
+        </div>
+        <div class="scroll-hint">
+          <span>SCROLL</span>
+          <span class="chev">⌄</span>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="text-head">
+              <span class="section-tag">ABOUT ME</span>
+              <h2 class="section-title">
+                <span>Flutter 工程師 × 產品人</span>
+                <span>把產品從想法帶到上架</span>
+              </h2>
+            </div>
+            <div class="text-body">
+              <p>5 年 Flutter 跨平台 APP 開發經驗，<br>專長是把互動複雜的產品需求，<br>拆解成清楚、可維護、可長期演進的架構與介面。</p>
+              <p class="text-break">累計參與 10+ 項 App 開發、7 款公開上架，<br>涵蓋健身、CRM、ERP、電商、即時通訊、遊戲與 3D 工業看板。</p>
+              <p class="text-break">也共同創辦 AI 產品 ELEMI，參與使用者訪談、產品規劃與整條 Flutter 產品線開發，<br>將模糊需求推進為可驗證的 MVP。</p>
+            </div>
+          </div>
+
+          <div class="about-photo">
+            <!-- Photo halo: dense ring of dots is procedurally injected
+                 into .photo-ring by main.ts (ringConstellation). Procedural
+                 is the right call for atmospheric "halo glow" — handcrafted
+                 sparse constellations read too empty around a portrait. -->
+            <div class="photo-ring" aria-hidden="true"></div>
+
+            <div class="photo-frame">
+              <img src="/CloudiaXu/profile/profile-photo.png" alt="XiaoYun Xu" class="photo-img" />
+            </div>
+          </div>
+
+          <div class="about-side">
+            <div class="side-item">
+              <span class="side-icon" aria-hidden="true">
+                <!-- Cube wireframe — "currently building". -->
+                <svg viewBox="0 0 36 36" fill="none">
+                  <g stroke="rgba(78,160,255,0.55)" stroke-width="0.6">
+                    <path d="M 7 13 L 7 28 L 22 28 L 22 13 Z" />
+                    <path d="M 14 6 L 14 21 L 29 21 L 29 6 Z" />
+                    <line x1="7" y1="13" x2="14" y2="6" />
+                    <line x1="22" y1="13" x2="29" y2="6" />
+                    <line x1="22" y1="28" x2="29" y2="21" />
+                    <line x1="7" y1="28" x2="14" y2="21" />
+                  </g>
+                  <g fill="#bcdcff">
+                    <circle cx="7" cy="13" r="1.1" />
+                    <circle cx="22" cy="13" r="1.1" />
+                    <circle cx="22" cy="28" r="1.1" />
+                    <circle cx="7" cy="28" r="1.1" />
+                    <circle cx="14" cy="6" r="1.1" />
+                    <circle cx="29" cy="6" r="1.1" />
+                    <circle cx="29" cy="21" r="1.1" />
+                    <circle cx="14" cy="21" r="1.1" />
+                  </g>
+                </svg>
+              </span>
+              <div>
+                <p class="side-tag">工作狀態</p>
+                <p class="side-text">
+                  求職中 · 全職 · 台北<br />
+                  對遠端有意願 · 錄取後可到職
+                </p>
+              </div>
+            </div>
+            <div class="side-item">
+              <span class="side-icon" aria-hidden="true">
+                <!-- Hexagon with internal triangulation — "domains / network". -->
+                <svg viewBox="0 0 36 36" fill="none">
+                  <g stroke="rgba(78,160,255,0.55)" stroke-width="0.6">
+                    <path d="M 18 4 L 30 11 L 30 25 L 18 32 L 6 25 L 6 11 Z" />
+                    <line x1="18" y1="4" x2="18" y2="32" />
+                    <line x1="6" y1="11" x2="30" y2="25" />
+                    <line x1="30" y1="11" x2="6" y2="25" />
+                  </g>
+                  <g fill="#bcdcff">
+                    <circle cx="18" cy="4" r="1.1" />
+                    <circle cx="30" cy="11" r="1.1" />
+                    <circle cx="30" cy="25" r="1.1" />
+                    <circle cx="18" cy="32" r="1.1" />
+                    <circle cx="6" cy="25" r="1.1" />
+                    <circle cx="6" cy="11" r="1.1" />
+                    <circle cx="18" cy="18" r="1.4" />
+                  </g>
+                </svg>
+              </span>
+              <div>
+                <p class="side-tag">專長領域</p>
+                <p class="side-text">
+                  Flutter / 原生整合<br />
+                  自動化測試 / CI/CD
+                </p>
+              </div>
+            </div>
+            <div class="side-item">
+              <span class="side-icon" aria-hidden="true">
+                <!-- Radial burst — "outward collaboration". -->
+                <svg viewBox="0 0 36 36" fill="none">
+                  <g stroke="rgba(78,160,255,0.55)" stroke-width="0.6">
+                    <circle cx="18" cy="18" r="13" />
+                    <line x1="18" y1="18" x2="18" y2="5" />
+                    <line x1="18" y1="18" x2="29" y2="11" />
+                    <line x1="18" y1="18" x2="29" y2="25" />
+                    <line x1="18" y1="18" x2="18" y2="31" />
+                    <line x1="18" y1="18" x2="7" y2="25" />
+                    <line x1="18" y1="18" x2="7" y2="11" />
+                  </g>
+                  <g fill="#bcdcff">
+                    <circle cx="18" cy="18" r="1.5" />
+                    <circle cx="18" cy="5" r="1" />
+                    <circle cx="29" cy="11" r="1" />
+                    <circle cx="29" cy="25" r="1" />
+                    <circle cx="18" cy="31" r="1" />
+                    <circle cx="7" cy="25" r="1" />
+                    <circle cx="7" cy="11" r="1" />
+                  </g>
+                </svg>
+              </span>
+              <div>
+                <p class="side-tag">期待加入</p>
+                <p class="side-text">
+                  重視工程品質<br />
+                  與產品體驗的團隊
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="what-i-do" id="what">
+        <span class="section-tag">WHAT I DO</span>
+        <div class="services-grid">
+          <div class="service">
+            <div class="service-icon" aria-hidden="true">
+              <!-- 3D wireframe cube — layered dot-stream construction.
+                   Edges: dual dasharray strokes (small dense + medium sparse,
+                   offset) → reads as varied-thickness dot stream.
+                   Corners: 3-layer stack (halo + mid + core) → reads as glowing star.
+                   Space diagonals: 4, all crossing at (27,31).
+                   Front: (10,24)(34,24)(34,48)(10,48)
+                   Back:  (20,14)(44,14)(44,38)(20,38) -->
+              <svg viewBox="0 0 60 60" fill="none">
+                <!-- Layer A: dense small dots along all edges + diagonals -->
+                <g stroke="#4ea0ff" stroke-width="0.7" stroke-dasharray="0 1.8" stroke-linecap="round" opacity="0.45">
+                  <line x1="10" y1="24" x2="34" y2="24" />
+                  <line x1="34" y1="24" x2="34" y2="48" />
+                  <line x1="34" y1="48" x2="10" y2="48" />
+                  <line x1="10" y1="48" x2="10" y2="24" />
+                  <line x1="20" y1="14" x2="44" y2="14" />
+                  <line x1="44" y1="14" x2="44" y2="38" />
+                  <line x1="44" y1="38" x2="20" y2="38" />
+                  <line x1="20" y1="38" x2="20" y2="14" />
+                  <line x1="10" y1="24" x2="20" y2="14" />
+                  <line x1="34" y1="24" x2="44" y2="14" />
+                  <line x1="34" y1="48" x2="44" y2="38" />
+                  <line x1="10" y1="48" x2="20" y2="38" />
+                  <line x1="10" y1="24" x2="44" y2="38" />
+                  <line x1="34" y1="24" x2="20" y2="38" />
+                  <line x1="34" y1="48" x2="20" y2="14" />
+                  <line x1="10" y1="48" x2="44" y2="14" />
+                </g>
+                <!-- Layer B: bigger sparse dots on outer edges only (offset to avoid overlap with A) -->
+                <g stroke="#4ea0ff" stroke-width="1.8" stroke-dasharray="0 5.5" stroke-dashoffset="1.3" stroke-linecap="round" opacity="0.8">
+                  <line x1="10" y1="24" x2="34" y2="24" />
+                  <line x1="34" y1="24" x2="34" y2="48" />
+                  <line x1="34" y1="48" x2="10" y2="48" />
+                  <line x1="10" y1="48" x2="10" y2="24" />
+                  <line x1="20" y1="14" x2="44" y2="14" />
+                  <line x1="44" y1="14" x2="44" y2="38" />
+                  <line x1="44" y1="38" x2="20" y2="38" />
+                  <line x1="20" y1="38" x2="20" y2="14" />
+                  <line x1="10" y1="24" x2="20" y2="14" />
+                  <line x1="34" y1="24" x2="44" y2="14" />
+                  <line x1="34" y1="48" x2="44" y2="38" />
+                  <line x1="10" y1="48" x2="20" y2="38" />
+                </g>
+                <!-- 8 corner halos (outer soft glow) -->
+                <g fill="#bcdcff" opacity="0.16">
+                  <circle cx="10" cy="24" r="3.6" />
+                  <circle cx="34" cy="24" r="3.6" />
+                  <circle cx="34" cy="48" r="3.6" />
+                  <circle cx="10" cy="48" r="3.6" />
+                  <circle cx="20" cy="14" r="3.6" />
+                  <circle cx="44" cy="14" r="3.6" />
+                  <circle cx="44" cy="38" r="3.6" />
+                  <circle cx="20" cy="38" r="3.6" />
+                </g>
+                <!-- 8 corner mid layer -->
+                <g fill="#bcdcff" opacity="0.42">
+                  <circle cx="10" cy="24" r="2.0" />
+                  <circle cx="34" cy="24" r="2.0" />
+                  <circle cx="34" cy="48" r="2.0" />
+                  <circle cx="10" cy="48" r="2.0" />
+                  <circle cx="20" cy="14" r="2.0" />
+                  <circle cx="44" cy="14" r="2.0" />
+                  <circle cx="44" cy="38" r="2.0" />
+                  <circle cx="20" cy="38" r="2.0" />
+                </g>
+                <!-- 8 corner bright cores -->
+                <g fill="#bcdcff">
+                  <circle cx="10" cy="24" r="1.3" />
+                  <circle cx="34" cy="24" r="1.3" />
+                  <circle cx="34" cy="48" r="1.3" />
+                  <circle cx="10" cy="48" r="1.3" />
+                  <circle cx="20" cy="14" r="1.3" />
+                  <circle cx="44" cy="14" r="1.3" />
+                  <circle cx="44" cy="38" r="1.3" />
+                  <circle cx="20" cy="38" r="1.3" />
+                </g>
+                <!-- Center star (3 layers) where 4 space diagonals cross -->
+                <circle cx="27" cy="31" r="3.0" fill="#bcdcff" opacity="0.18" />
+                <circle cx="27" cy="31" r="1.7" fill="#bcdcff" opacity="0.45" />
+                <circle cx="27" cy="31" r="1.0" fill="#bcdcff" />
+              </svg>
+            </div>
+            <h3>跨平台 APP 開發</h3>
+            <p>Flutter 從 0 到 1：Riverpod / Bloc 狀態管理與 Clean Architecture，獨立完成雙平台上架與維護。</p>
+          </div>
+          <div class="service">
+            <div class="service-icon" aria-hidden="true">
+              <!-- Multi-cluster constellation — 6 hollow diamonds in 3
+                   rows × 2 cols. D is moved under B (both at x=45) so
+                   the inter-row drop B→D is perfectly vertical.
+                   Cluster centers (anchor at TOP corner of each diamond):
+                     A=(15,12) B=(45,12)  C=(20,32) D=(45,32)
+                     E=(15,52) F=(45,52)
+                   Connectors: A↔B, B↓D (vertical), D↔C, E↔F. -->
+              <svg viewBox="0 0 60 60" fill="none">
+                <!-- Connectors (simple short dotted links) -->
+                <g stroke="#4ea0ff" stroke-width="0.8" stroke-dasharray="0 2.2" stroke-linecap="round" opacity="0.55">
+                  <line x1="18" y1="12" x2="42" y2="12" />
+                  <line x1="45" y1="15" x2="45" y2="29" />
+                  <line x1="42" y1="32" x2="23" y2="32" />
+                  <line x1="18" y1="52" x2="42" y2="52" />
+                </g>
+                <!-- Diamond edges (4 edges × 6 clusters = 24 edges) -->
+                <g stroke="#4ea0ff" stroke-width="0.7" stroke-dasharray="0 1.8" stroke-linecap="round" opacity="0.6">
+                  <!-- A diamond at (15,12) -->
+                  <line x1="12" y1="12" x2="15" y2="9"  />
+                  <line x1="15" y1="9"  x2="18" y2="12" />
+                  <line x1="18" y1="12" x2="15" y2="15" />
+                  <line x1="15" y1="15" x2="12" y2="12" />
+                  <!-- B at (45,12) -->
+                  <line x1="42" y1="12" x2="45" y2="9"  />
+                  <line x1="45" y1="9"  x2="48" y2="12" />
+                  <line x1="48" y1="12" x2="45" y2="15" />
+                  <line x1="45" y1="15" x2="42" y2="12" />
+                  <!-- C at (20,32) -->
+                  <line x1="17" y1="32" x2="20" y2="29" />
+                  <line x1="20" y1="29" x2="23" y2="32" />
+                  <line x1="23" y1="32" x2="20" y2="35" />
+                  <line x1="20" y1="35" x2="17" y2="32" />
+                  <!-- D at (45,32) — moved from (48,32) to align under B -->
+                  <line x1="42" y1="32" x2="45" y2="29" />
+                  <line x1="45" y1="29" x2="48" y2="32" />
+                  <line x1="48" y1="32" x2="45" y2="35" />
+                  <line x1="45" y1="35" x2="42" y2="32" />
+                  <!-- E at (15,52) -->
+                  <line x1="12" y1="52" x2="15" y2="49" />
+                  <line x1="15" y1="49" x2="18" y2="52" />
+                  <line x1="18" y1="52" x2="15" y2="55" />
+                  <line x1="15" y1="55" x2="12" y2="52" />
+                  <!-- F at (45,52) -->
+                  <line x1="42" y1="52" x2="45" y2="49" />
+                  <line x1="45" y1="49" x2="48" y2="52" />
+                  <line x1="48" y1="52" x2="45" y2="55" />
+                  <line x1="45" y1="55" x2="42" y2="52" />
+                </g>
+                <!-- Dim corner dots (3 per cluster — left, right, bottom) -->
+                <g fill="#bcdcff" opacity="0.7">
+                  <circle cx="12" cy="12" r="1.0" />
+                  <circle cx="18" cy="12" r="1.0" />
+                  <circle cx="15" cy="15" r="1.0" />
+                  <circle cx="42" cy="12" r="1.0" />
+                  <circle cx="48" cy="12" r="1.0" />
+                  <circle cx="45" cy="15" r="1.0" />
+                  <circle cx="17" cy="32" r="1.0" />
+                  <circle cx="23" cy="32" r="1.0" />
+                  <circle cx="20" cy="35" r="1.0" />
+                  <circle cx="42" cy="32" r="1.0" />
+                  <circle cx="48" cy="32" r="1.0" />
+                  <circle cx="45" cy="35" r="1.0" />
+                  <circle cx="12" cy="52" r="1.0" />
+                  <circle cx="18" cy="52" r="1.0" />
+                  <circle cx="15" cy="55" r="1.0" />
+                  <circle cx="42" cy="52" r="1.0" />
+                  <circle cx="48" cy="52" r="1.0" />
+                  <circle cx="45" cy="55" r="1.0" />
+                </g>
+                <!-- Anchor halos (top corner of each diamond) -->
+                <g fill="#bcdcff" opacity="0.22">
+                  <circle cx="15" cy="9"  r="2.6" />
+                  <circle cx="45" cy="9"  r="2.6" />
+                  <circle cx="20" cy="29" r="2.6" />
+                  <circle cx="45" cy="29" r="2.6" />
+                  <circle cx="15" cy="49" r="2.6" />
+                  <circle cx="45" cy="49" r="2.6" />
+                </g>
+                <!-- Anchor bright cores -->
+                <g fill="#bcdcff">
+                  <circle cx="15" cy="9"  r="1.4" />
+                  <circle cx="45" cy="9"  r="1.4" />
+                  <circle cx="20" cy="29" r="1.4" />
+                  <circle cx="45" cy="29" r="1.4" />
+                  <circle cx="15" cy="49" r="1.4" />
+                  <circle cx="45" cy="49" r="1.4" />
+                </g>
+              </svg>
+            </div>
+            <h3>原生整合</h3>
+            <p>深入 Android / iOS 原生層，以 MethodChannel 封裝 TapPay 金流 SDK，並具備生物辨識、HealthKit 步數同步與 Agora 即時影音等原生整合經驗。</p>
+          </div>
+          <div class="service">
+            <div class="service-icon" aria-hidden="true">
+              <!-- Concentric orbits — 2 circular rings (radar/strategy
+                   visual) around a center nucleus, with one bright
+                   "target" satellite OUTSIDE the outer ring connected
+                   by a spoke. 8 evenly-spaced beads per ring.
+                   Geometry:
+                     Center (30,30); inner r=10, outer r=18.
+                     Spoke from center to (47,13) at -45° angle
+                     (distance 24, beyond outer ring). -->
+              <svg viewBox="0 0 60 60" fill="none">
+                <!-- Inner orbit ring (dotted stream) -->
+                <circle cx="30" cy="30" r="10" stroke="#4ea0ff" stroke-width="0.7" stroke-dasharray="0 1.6" stroke-linecap="round" opacity="0.5" />
+                <!-- Outer orbit ring (dotted stream) -->
+                <circle cx="30" cy="30" r="18" stroke="#4ea0ff" stroke-width="0.7" stroke-dasharray="0 1.6" stroke-linecap="round" opacity="0.5" />
+                <!-- Spoke from center outward to target satellite -->
+                <line x1="30" y1="30" x2="47" y2="13" stroke="#4ea0ff" stroke-width="1.0" stroke-dasharray="0 2.5" stroke-linecap="round" opacity="0.7" />
+                <!-- 8 beads on outer orbit (evenly spaced every 45°) -->
+                <g fill="#bcdcff" opacity="0.8">
+                  <circle cx="48"    cy="30"    r="1.2" />
+                  <circle cx="42.73" cy="42.73" r="1.2" />
+                  <circle cx="30"    cy="48"    r="1.2" />
+                  <circle cx="17.27" cy="42.73" r="1.2" />
+                  <circle cx="12"    cy="30"    r="1.2" />
+                  <circle cx="17.27" cy="17.27" r="1.2" />
+                  <circle cx="30"    cy="12"    r="1.2" />
+                  <circle cx="42.73" cy="17.27" r="1.2" />
+                </g>
+                <!-- 8 beads on inner orbit (evenly spaced every 45°) -->
+                <g fill="#bcdcff" opacity="0.75">
+                  <circle cx="40"    cy="30"    r="1.0" />
+                  <circle cx="37.07" cy="37.07" r="1.0" />
+                  <circle cx="30"    cy="40"    r="1.0" />
+                  <circle cx="22.93" cy="37.07" r="1.0" />
+                  <circle cx="20"    cy="30"    r="1.0" />
+                  <circle cx="22.93" cy="22.93" r="1.0" />
+                  <circle cx="30"    cy="20"    r="1.0" />
+                  <circle cx="37.07" cy="22.93" r="1.0" />
+                </g>
+                <!-- Target satellite at spoke end (outside outer ring) -->
+                <circle cx="47" cy="13" r="2.8" fill="#bcdcff" opacity="0.22" />
+                <circle cx="47" cy="13" r="1.5" fill="#bcdcff" />
+                <!-- Center nucleus (3-layer halo) -->
+                <circle cx="30" cy="30" r="3.2" fill="#bcdcff" opacity="0.18" />
+                <circle cx="30" cy="30" r="2.0" fill="#bcdcff" opacity="0.45" />
+                <circle cx="30" cy="30" r="1.3" fill="#bcdcff" />
+              </svg>
+            </div>
+            <h3>工程品質</h3>
+            <p>Unit / Widget 自動化測試、GitHub Actions / Fastlane CI/CD 與 Crashlytics 監控，守住每一次發佈。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" id="highlights">
+        <span class="section-tag">HIGHLIGHTS</span>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <p class="stat-label">年 Flutter 跨平台<br />APP 開發經驗</p>
+          </div>
+          <div class="stat">
+            <span class="stat-num">7</span>
+            <p class="stat-label">款 APP 公開上架<br />從開發、審核到長期維運</p>
+          </div>
+          <div class="stat">
+            <span class="stat-num">60</span>
+            <p class="stat-label">篇 iThome 鐵人賽技術文章<br />兩屆完賽 · 2025 優選</p>
+          </div>
+          <div class="stat">
+            <span class="stat-num">10+</span>
+            <p class="stat-label">個 APP 開發實績：健身 / CRM / 電商<br />物業 / 3D 看板 / 遊戲 / AI 產品</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <span class="section-tag">EXPERIENCE</span>
+        <div class="exp-list">
+          <article class="exp-item">
+            <div class="exp-head">
+              <h3>共同創辦人（產品 / 開發）</h3>
+              <span class="exp-org">41 Tech（誒哎股份有限公司）· AI Product Studio</span>
+              <span class="exp-time">2025/11 – 至今</span>
+            </div>
+            <ul class="exp-points">
+              <li>主導 AI 回覆工具 ELEMI 從 0 到 1：設計「AI 擬稿 → 風險標記 → 使用者審核 → 送出」的 human-in-the-loop 流程與介面。</li>
+              <li>六週內親自執行 20 場需求訪談（跨 15+ 產業），篩出 2 位種子客戶進入 MVP 試用，收斂出 74 項需求 Roadmap。</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">AI 產品</span>
+              <span class="chip">Human-in-the-loop</span>
+              <span class="chip">LLM 整合</span>
+              <span class="chip">OAuth</span>
+            </div>
+          </article>
+          <article class="exp-item">
+            <div class="exp-head">
+              <h3>APP 開發工程師（回任期間職級：高級工程師）</h3>
+              <span class="exp-org">福能股份有限公司 · 綠能產業</span>
+              <span class="exp-time">2023/11 – 2024/07 & 2025/04 – 2025/08（回任）</span>
+            </div>
+            <ul class="exp-points">
+              <li>在缺乏完整 PM 與設計資源的精簡團隊中，主導產品從需求規劃、架構設計至交付維護；從 0 到 1 規劃骨幹，採 MVVM + Riverpod。</li>
+              <li>能源管理系統（EMS）APP 從 0 到 1，帶領一年資 Flutter 工程師完成所有介面；企業 CRM APP 回任 5 個月、429 commits，獨立交付 20+ 業務模組並導入生物辨識登入。</li>
+              <li>建立多階段 CI/CD Pipeline；深入原生底層以 MethodChannel 封裝 TapPay SDK，完成含 3D 驗證的高安全性支付流程。</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Flutter</span>
+              <span class="chip">Riverpod</span>
+              <span class="chip">MVVM</span>
+              <span class="chip">Unit Test</span>
+              <span class="chip">CI/CD</span>
+            </div>
+          </article>
+          <article class="exp-item">
+            <div class="exp-head">
+              <h3>Flutter / APP 開發工程師</h3>
+              <span class="exp-org">先行者科技有限公司 · 新創公司</span>
+              <span class="exp-time">2021/09 – 2023/10</span>
+            </div>
+            <ul class="exp-points">
+              <li>3D 工廠數位孿生看板：不依賴 3D 套件或遊戲引擎，自行以 Flutter 實作 isometric 視角的 3D 視覺化與渲染，並導入 Drag & Drop 佈局。</li>
+              <li>客製化電商平台：實作類 iOS 桌面的拖曳、群組與非固定排序，打造直覺靈活的操作體驗。</li>
+              <li>於物業管理系統導入 Agora 即時語音視訊，整合對講機與推播通知；負責 API 串接與 APP 上架。</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Flutter</span>
+              <span class="chip">Bloc</span>
+              <span class="chip">3D / isometric</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">Agora</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="work" id="work">
+        <span class="section-tag">SELECTED WORK</span>
+        <div class="work-grid work-grid-2col">
+          <article class="work-card lean">
+            <div class="work-thumb">
+              <img src="/CloudiaXu/works/gym-app.jpg" alt="健身房預約管理 APP 畫面" loading="lazy" />
+            </div>
+            <span class="work-label">獨立開發 · 雙平台上架</span>
+            <h3>健身房預約管理 APP</h3>
+            <p>涵蓋多重使用者身份、預約管理與商品購買。MVVM + Riverpod 架構與 Material3 Design System，客製化課程行事曆與 InBody 數據圖表，並以 MethodChannel 封裝 TapPay 金流，到職 2.5 個月內完成雙平台上架，持續迭代至 1.0.8。</p>
+            <div class="chip-row">
+              <span class="chip">MVVM / Riverpod</span>
+              <span class="chip">MethodChannel</span>
+              <span class="chip">TapPay 金流</span>
+              <span class="chip">Material3</span>
+            </div>
+          </article>
+          <article class="work-card lean">
+            <div class="work-thumb">
+              <img src="/CloudiaXu/works/crew-up.jpg" alt="Crew Up! APP 畫面" loading="lazy" />
+            </div>
+            <span class="work-label">SIDE PROJECT · 2025 iThome 鐵人賽優選</span>
+            <h3>Crew Up!</h3>
+            <p>社交挑戰 APP：發起／參加目標挑戰、即時群組聊天與進度追蹤。採 Clean Architecture + Riverpod，整合 Firebase 生態系（Auth、Firestore、Storage、FCM、Crashlytics）與 Gemini AI Agent，並建立 GitHub Actions / Fastlane 雙平台自動發版流程。</p>
+            <div class="card-links">
+              <a class="link-arrow" href="https://ithelp.ithome.com.tw/users/20152683/ironman/8396" target="_blank" rel="noopener noreferrer">30 篇系列文章 ↗</a>
+            </div>
+            <div class="chip-row">
+              <span class="chip">Clean Arch.</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">Gemini AI Agent</span>
+              <span class="chip">CI/CD</span>
+            </div>
+          </article>
+          <article class="work-card lean">
+            <div class="work-thumb">
+              <img src="/CloudiaXu/works/bear-walk.jpg" alt="熊愛走 APP 畫面" loading="lazy" />
+            </div>
+            <span class="work-label">SIDE PROJECT</span>
+            <h3>熊愛走</h3>
+            <p>散步遊戲化 APP：把使用者真實步數轉成遊戲內的路線進度、任務、獎勵與收藏。feature-first 分層拆開 domain / data / presentation，HealthKit 步數同步設計同步游標、只取增量，同步失敗時不阻塞 UI。</p>
+            <div class="chip-row">
+              <span class="chip">feature-first 分層</span>
+              <span class="chip">Riverpod / go_router</span>
+              <span class="chip">Firestore 同步</span>
+              <span class="chip">HealthKit</span>
+            </div>
+          </article>
+          <article class="work-card lean">
+            <div class="work-thumb">
+              <img src="/CloudiaXu/works/fun-world.jpg" alt="Fun World 遊戲畫面" loading="lazy" />
+            </div>
+            <span class="work-label">SIDE PROJECT</span>
+            <h3>Fun World</h3>
+            <p>獨立從 0 到 1 規劃並開發三款小遊戲。不依賴傳統遊戲引擎，以 Flutter 搭配 Riverpod 控制遊戲邏輯與互動流程，運用高效渲染實作場景切換、角色動畫與遊戲音效，跨平台一致且體驗流暢。</p>
+            <div class="card-links">
+              <a class="link-arrow" href="https://play.google.com/store/apps/details?id=pro.modernwizard.funworld&amp;hl=zh_TW" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
+            </div>
+            <div class="chip-row">
+              <span class="chip">Riverpod</span>
+              <span class="chip">遊戲渲染</span>
+              <span class="chip">動畫 / 音效</span>
+            </div>
+          </article>
+        </div>
+        <div class="work-more">
+          <a class="btn btn-ghost" href="./works.html">查看完整作品集 →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer-card">
+        <!-- "Star river" backdrop: meandering spine of connected anchor
+             stars + scattered atmospheric dots flowing across the card's
+             full width. Hand-composed (not procedural) to keep brand
+             consistency with the about-section SVG icons. -->
+        <svg class="footer-constellation" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <!-- Spine + branches: thin connecting lines along the flow -->
+          <g stroke="rgba(78,160,255,0.4)" stroke-width="0.7" stroke-linecap="round" fill="none">
+            <line x1="110" y1="130" x2="250" y2="180" />
+            <line x1="250" y1="180" x2="380" y2="100" />
+            <line x1="380" y1="100" x2="600" y2="180" />
+            <line x1="600" y1="180" x2="680" y2="90" />
+            <line x1="680" y1="90"  x2="820" y2="140" />
+            <line x1="820" y1="140" x2="970" y2="220" />
+            <line x1="970" y1="220" x2="1080" y2="120" />
+          </g>
+          <g stroke="rgba(78,160,255,0.25)" stroke-width="0.6" stroke-linecap="round" fill="none">
+            <line x1="180" y1="70"  x2="250" y2="180" />
+            <line x1="450" y1="160" x2="380" y2="100" />
+            <line x1="450" y1="160" x2="600" y2="180" />
+            <line x1="740" y1="230" x2="600" y2="180" />
+            <line x1="900" y1="60"  x2="820" y2="140" />
+            <line x1="1140" y1="200" x2="1080" y2="120" />
+            <line x1="60"  y1="200" x2="110" y2="130" />
+          </g>
+          <!-- Bright anchor stars: 5 along the spine -->
+          <g fill="#bcdcff">
+            <circle cx="110"  cy="130" r="2.8" />
+            <circle cx="380"  cy="100" r="3.0" />
+            <circle cx="600"  cy="180" r="3.5" />
+            <circle cx="820"  cy="140" r="3.0" />
+            <circle cx="1080" cy="120" r="2.8" />
+          </g>
+          <!-- Mid-brightness stars -->
+          <g fill="#bcdcff" fill-opacity="0.7">
+            <circle cx="180"  cy="70"  r="2.0" />
+            <circle cx="250"  cy="180" r="1.7" />
+            <circle cx="450"  cy="160" r="2.0" />
+            <circle cx="520"  cy="70"  r="1.7" />
+            <circle cx="680"  cy="90"  r="1.9" />
+            <circle cx="740"  cy="230" r="1.8" />
+            <circle cx="900"  cy="60"  r="2.0" />
+            <circle cx="970"  cy="220" r="1.7" />
+            <circle cx="1140" cy="200" r="1.8" />
+            <circle cx="60"   cy="200" r="1.8" />
+          </g>
+          <!-- Atmospheric scatter: low-opacity dust across full width -->
+          <g fill="rgba(188,220,255,0.45)">
+            <circle cx="40"   cy="80"  r="1.0" />
+            <circle cx="90"   cy="280" r="0.9" />
+            <circle cx="220"  cy="250" r="0.8" />
+            <circle cx="290"  cy="50"  r="0.9" />
+            <circle cx="320"  cy="230" r="1.0" />
+            <circle cx="420"  cy="280" r="0.8" />
+            <circle cx="560"  cy="50"  r="0.9" />
+            <circle cx="640"  cy="270" r="0.8" />
+            <circle cx="760"  cy="50"  r="0.9" />
+            <circle cx="860"  cy="280" r="0.8" />
+            <circle cx="1020" cy="60"  r="0.9" />
+            <circle cx="1100" cy="270" r="0.8" />
+            <circle cx="1180" cy="60"  r="0.9" />
+          </g>
+        </svg>
+
+        <div class="footer-grid">
+          <div class="footer-text">
+            <h2 class="footer-title">LET'S CONNECT.</h2>
+            <p class="footer-lede">
+              如果你正在找一位能獨立把 APP 從 0 到 1 做到上架的 Flutter 工程師，<br />
+              歡迎與我聯絡！
+            </p>
+            <div class="footer-cta">
+              <a class="btn btn-primary" href="mailto:shiau.cloudia@gmail.com">
+                寫信給我 →
+              </a>
+            </div>
+          </div>
+          <div class="footer-info">
+            <a class="info-item" href="mailto:shiau.cloudia@gmail.com">
+              <!-- Envelope drawn in brand dotted-stroke language (no raster logo asset for email). -->
+              <svg class="brand-logo" viewBox="0 0 24 24" fill="none" width="24" height="24" aria-hidden="true">
+                <rect x="3" y="5.5" width="18" height="13" rx="2" stroke="#4ea0ff" stroke-width="1.2" opacity="0.8" />
+                <path d="M 4 7 L 12 13 L 20 7" stroke="#4ea0ff" stroke-width="1.2" opacity="0.8" />
+                <circle cx="12" cy="13" r="1.3" fill="#bcdcff" />
+              </svg>
+              shiau.cloudia@gmail.com
+            </a>
+            <a class="info-item" href="https://www.linkedin.com/in/xyxu/" target="_blank" rel="noopener noreferrer">
+              <img class="brand-logo" src="/CloudiaXu/logos/linkedin.png" alt="LinkedIn" loading="lazy" width="24" height="24" />
+              LinkedIn xyxu
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 XiaoYun Xu. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ARTICLES:START -->
+    <!-- Generated by scripts/build_articles.mjs — do not edit by hand. -->
+
+    <!-- ARTICLES:END -->
+
+  </body>
+</html>
